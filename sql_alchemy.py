@@ -16,10 +16,22 @@ def login():
     else:    
         return render_template("login.html")
 
-@app.route("/<user>")
+@app.route("/<user>" ,  methods=["GET","POST"])
 def user(user):
     if "user" in session:
         user = session["user"]
+
+        if request.method == "POST":
+            email = request.form["email"]
+            session["email"] = email
+            flash(f"Email {email} has been saved for user {user}", "success")
+
+        else:
+            if "email" in session:
+                email = session["email"]
+
+
+                return f"<h1>{user}</h1><p>Email: {email}</p>"
         return f"<h1>{user}</h1>"
     else:
         return redirect(url_for("login"))
@@ -29,6 +41,7 @@ def logout():
     if "user" in session:
         user = session["user"]
     session.pop("user", None)
+    session.pop("email", None)
     flash(f"You have been logged out! {user}", "info")
     return redirect(url_for("login"))
 
