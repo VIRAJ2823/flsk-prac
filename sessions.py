@@ -26,8 +26,10 @@ def user(user):
 
 @app.route("/logout")
 def logout():
+    if "user" in session:
+        user = session["user"]
     session.pop("user", None)
-    flash("You have been logged out!", "info")
+    flash(f"You have been logged out! {user}", "info")
     return redirect(url_for("login"))
 
 
