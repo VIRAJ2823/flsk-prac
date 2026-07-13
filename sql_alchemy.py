@@ -10,10 +10,10 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db = SQLAlchemy(app)
 
-class Users(db.model):
-    id = db.column(db.integer,primary_key=True)
-    name = db.column(db.string(100))
-    email = db.column(db.string(100))
+class Users(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100))
+    email = db.Column(db.String(100))
 
     def __init__(self, name, email):
         self.name = name
