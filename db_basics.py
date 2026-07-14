@@ -1,17 +1,15 @@
-from sqlalchemy import create_engine, text
+from sqlalchemy import MetaData, create_engine, text ,  MetaData , Table , Column , Integer , String
 
 engine = create_engine('sqlite:///mydatabase.db', echo = True)
 
-conn = engine.connect()
+meta = MetaData()
 
-conn.execute(text("CREATE TABLE IF NOT EXISTS people ( name TEXT, age INTEGER)"))
+people = Table(
+    'people',
+    meta,
+    Column('id', Integer, primary_key=True),
+    Column('name', String),
+    Column('age', Integer)
+)
 
-conn.commit()
-
-from sqlalchemy.orm import Session
-
-session = Session(engine)
-
-session.execute(text('INSERT INTO PEOPLE (name,age)  VALUES ("VIRAJ", 19)'))
-
-session.commit()
+meta.create_all(engine)
