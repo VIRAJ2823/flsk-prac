@@ -26,24 +26,24 @@ meta.create_all(engine)
 
 conn = engine.connect()
 
-stmt1 = Insert(people).values(id=1, name="viraj", age=25)
-stmt2 = Insert(people).values(id=2, name="nikhil", age=15)
-stmt3 = Insert(people).values(id=3, name="sachin", age=30)
+# stmt1 = Insert(people).values(id=1, name="viraj", age=25)
+# stmt2 = Insert(people).values(id=2, name="nikhil", age=15)
+# stmt3 = Insert(people).values(id=3, name="sachin", age=30)
 
-#conn.execute(stmt1)
-#conn.execute(stmt2)
-conn.execute(stmt3)
-#conn.commit()
+# #conn.execute(stmt1)
+# #conn.execute(stmt2)
+# conn.execute(stmt3)
+# #conn.commit()
 
 
-delete_statement = people.delete().where(people.c.name == "sachin")
-conn.execute(delete_statement)
-conn.commit()       # Save the update
+# delete_statement = people.delete().where(people.c.name == "sachin")
+# conn.execute(delete_statement)
+# conn.commit()       # Save the update
 
-# Now execute a SELECT query
-select_statement = people.select()
+# # Now execute a SELECT query
+# select_statement = people.select()
 
-result = conn.execute(select_statement)
+# result = conn.execute(select_statement)
 
-for row in result.fetchall():
-    print(row)
+# for row in result.fetchall():
+#     print(row)
