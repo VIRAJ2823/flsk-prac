@@ -47,4 +47,3 @@ conn = engine.connect()
 
 # for row in result.fetchall():
 #     print(row)
-print row
