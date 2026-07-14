@@ -19,9 +19,9 @@ conn = engine.connect()
 stmt1 = Insert(people).values(id=1, name="viraj", age=25)
 stmt2 = Insert(people).values(id=2, name="nikhil", age=15)
 
-conn.execute(stmt1)
-conn.execute(stmt2)
-conn.commit()
+#conn.execute(stmt1)
+#conn.execute(stmt2)
+#conn.commit()
 
 
 select_statement = people.select().where(people.c.age > 20)
