@@ -1,5 +1,5 @@
 
-from sqlalchemy import MetaData, create_engine, text ,  MetaData , Table , Column , Integer , String , Insert
+from sqlalchemy import MetaData, create_engine, text ,  MetaData , Table , Column , Integer , String , Insert , Float , ForeignKey
 
 engine = create_engine('sqlite:///mydatabase.db', echo = True)
 
@@ -11,6 +11,15 @@ people = Table(
     Column('id', Integer, primary_key=True),
     Column('name', String),
     Column('age', Integer)
+)
+
+things = Table(
+    'things',
+    meta,
+    Column('id',Integer, primary_key = True),
+    Column('description' , String , nullable = False),
+    Column('value', Float),
+    Column('owner', Integer,ForeignKey('people.id'))
 )
 
 meta.create_all(engine)
