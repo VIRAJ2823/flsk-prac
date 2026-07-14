@@ -1,4 +1,4 @@
-from sqlalchemy import MetaData, create_engine, text ,  MetaData , Table , Column , Integer , String
+from sqlalchemy import MetaData, create_engine, text ,  MetaData , Table , Column , Integer , String , Insert
 
 engine = create_engine('sqlite:///mydatabase.db', echo = True)
 
@@ -13,3 +13,9 @@ people = Table(
 )
 
 meta.create_all(engine)
+
+conn = engine.connect()
+
+insert_statement = Insert(people).values(id = 1 ,name= 'viraj', age= 25)
+result = conn.execute(insert_statement)
+conn.commit()
