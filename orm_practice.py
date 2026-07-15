@@ -94,9 +94,16 @@ session.commit()
 #         print(row.name, "owns", thing.description)
 
 # update operation
-viraj = session.query(person).filter(person.name == "Viraj").first()
+# viraj = session.query(person).filter(person.name == "Viraj").first()
 
-viraj.age = 23
+# viraj.age = 23
 
+# session.commit()
+
+
+# delete operation
+
+result = session.query(person).filter(person.name == 'Delta').first()
+
+session.delete(result)
 session.commit()
-
