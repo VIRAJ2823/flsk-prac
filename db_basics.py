@@ -48,14 +48,14 @@ conn = engine.connect()
 # for row in result.fetchall():
 #     print(row)
 
-insert_people = things.insert().values([
+insert_people = people.insert().values([
     {'name': 'viraj', 'age': 25},
     {'name': 'nikhil', 'age': 15},
     {'name': 'sachin', 'age': 30},
     {'name': 'yujin', 'age': 20},
 ])
 
-insert_things = things.insert(),values([
+insert_things = things.insert().values([
     {'owner': 1 , 'description':'laptop', 'value': 1000.0},
     {'owner':2, 'description': 'phone', 'value': 500.0},
     {'owner':3, 'description': 'tablet', 'value': 300.0},
