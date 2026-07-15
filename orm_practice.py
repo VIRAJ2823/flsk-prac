@@ -76,3 +76,19 @@ result = session.query(person).filter(person.age > 20).all()
 
 for row in result:
     print(row.name)
+
+# printing all the things a person owns
+
+result = session.query(person).filter(person.name == "Viraj").all()
+
+for row in result:
+    for thing in row.things:
+        print(thing.description)
+
+# to print everything everyone owns
+
+result = session.query(person).all()
+
+for row in result:
+    for thing in row.things:
+        print(thing.description)
