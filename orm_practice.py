@@ -60,35 +60,37 @@ t9 = things(description="Book", value=90, person=p5)
 session.commit()
 
 # read people
-result = session.query(person).all()
+# result = session.query(person).all()
 
 # for row in result:
 #     print(row.id,row.name,row.age)
 
 # filter by name
-result = session.query(person).filter(person.name == "Viraj").all()
+# result = session.query(person).filter(person.name == "Viraj").all()
 
-for row in result:
-    print(row.id,row.age)
+# for row in result:
+#     print(row.id,row.age)
 
 # filter by age 
-result = session.query(person).filter(person.age > 20).all()
+# result = session.query(person).filter(person.age > 20).all()
 
-for row in result:
-    print(row.name)
+# for row in result:
+#     print(row.name)
 
 # printing all the things a person owns
 
-result = session.query(person).filter(person.name == "Viraj").all()
+# result = session.query(person).filter(person.name == "Viraj").all()
 
-for row in result:
-    for thing in row.things:
-        print(thing.description)
+# for row in result:
+#     for thing in row.things:
+#         print(thing.description)
 
 # to print everything everyone owns
 
-result = session.query(person).all()
+# result = session.query(person).all()
 
-for row in result:
-    for thing in row.things:
-        print(thing.description)
+# for row in result:
+#     for thing in row.things:
+#         print(row.name, "owns", thing.description)
+
+# update operation
