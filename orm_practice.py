@@ -107,3 +107,5 @@ result = session.query(person).filter(person.name == 'Delta').first()
 
 session.delete(result)
 session.commit()
+
+# for deleting a thing in person
