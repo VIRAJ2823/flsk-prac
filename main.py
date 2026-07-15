@@ -16,7 +16,7 @@ class person(base):
 
 
 class things(base):
-    __tablename__ = 'thing'
+    __tablename__ = 'things'
 
     id = Column(Integer, primary_key=True)
     description = Column(String, nullable=False)
@@ -35,6 +35,6 @@ new_person = person(name='sam', age=26)
 session.add(new_person)
 session.commit()
 
-new_thing = things(description='camera', value=600 , owner = new_person.id)
-session.add(new_thing)
-session.commit()
+# new_thing = things(description='camera', value=600 , owner = new_person.id)
+# session.add(new_thing)
+# session.commit()
