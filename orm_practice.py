@@ -65,8 +65,14 @@ result = session.query(person).all()
 # for row in result:
 #     print(row.id,row.name,row.age)
 
-
+# filter by name
 result = session.query(person).filter(person.name == "Viraj").all()
 
 for row in result:
     print(row.id,row.age)
+
+# filter by age 
+result = session.query(person).filter(person.age > 20).all()
+
+for row in result:
+    print(row.name)
