@@ -66,3 +66,6 @@ insert_things = things.insert(),values([
 
 conn.execute(insert_people)
 conn.commit()
+
+conn.execute(insert_things)
+conn.commit()
