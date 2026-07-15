@@ -11,7 +11,7 @@ class person(base):
     name = Column(String , nullable=False)
     age = Column(Float)
 
-    things = relationship('thing',back_populates='person')
+    things = relationship('things',back_populates='person')
 
 
 
@@ -23,3 +23,13 @@ class things(base):
     owner = Column(Integer, ForeignKey = ('people.id'))
 
     person = relationship('people',back_populates='things')
+
+
+base.metadata.Create_all(engine)
+Session = sessionmaker(bind=engine)
+session = Session()
+
+new_person = person(name:'sam',age=26)
+session.add(new_person)
+
+session.commit()
