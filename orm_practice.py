@@ -54,7 +54,16 @@ t8 = things(description="Pen", value=20, person=p4)
 t9 = things(description="Book", value=90, person=p5)
 
 
-session.add_all([p1, p2, p3, p4, p5])
-session.add_all([t1, t2, t3, t4, t5, t6, t7, t8, t9])
+# session.add_all([p1, p2, p3, p4, p5])
+# session.add_all([t1, t2, t3, t4, t5, t6, t7, t8, t9])
 
 session.commit()
+
+# read people
+result = session.query(person).all()
+
+for row in result:
+    print(row.id,row.name,row.age)
+
+
+result =  session.query(person).filter_by(id=1).first()
