@@ -1,5 +1,5 @@
 
-from sqlalchemy import MetaData, create_engine, text ,  MetaData , Table , Column , Integer , String , Insert , Float , ForeignKey, values , Function
+from sqlalchemy import MetaData, create_engine, text ,  MetaData , Table , Column , Integer , String , Insert , Float , ForeignKey, values , func
 
 engine = create_engine('sqlite:///mydatabase.db', echo = True)
 
@@ -79,7 +79,7 @@ conn = engine.connect()
 #     print(row)
 
 
-group_by_statement = things.select().with_only_columns(things.c.owner, function.sum(things.c.value)).group_by(things.c.owner)
+group_by_statement = things.select().with_only_columns(things.c.owner,  func.sum(things.c.value)).group_by(things.c.owner)
 result = conn.execute(group_by_statement)
 
 for row in result.fetchall():
