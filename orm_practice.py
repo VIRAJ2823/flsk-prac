@@ -62,8 +62,11 @@ session.commit()
 # read people
 result = session.query(person).all()
 
+# for row in result:
+#     print(row.id,row.name,row.age)
+
+
+result = session.query(person).filter(person.name == "Viraj").all()
+
 for row in result:
-    print(row.id,row.name,row.age)
-
-
-result =  session.query(person).filter_by(id=1).first()
+    print(row.id,row.age)
