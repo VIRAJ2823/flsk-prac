@@ -32,14 +32,15 @@ Session = sessionmaker(bind=engine)
 session = Session()
 
 new_person = person(name='sam', age=26)
-# session.add(new_person)
-# session.commit()
+session.add(new_person)
+session.commit()
 
 new_thing = things(description='camera', value=600 , owner = new_person.id)
-# session.add(new_thing)
-# session.commit()
+session.add(new_thing)
+session.commit()
 
 new_thing.person = new_person
 
 print([t.description for t in new_person.things])
 print(new_thing.person)
+
