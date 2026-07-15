@@ -114,3 +114,4 @@ result = session.query(things).filter(things.description == 'Keyboard').first()
 
 session.delete(result)
 session.commit()
+
