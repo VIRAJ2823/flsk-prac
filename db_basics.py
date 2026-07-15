@@ -79,8 +79,9 @@ conn = engine.connect()
 #     print(row)
 
 
-group_by_statement = things.select().with_only_columns(things.c.owner,  func.sum(things.c.value)).group_by(things.c.owner)
+group_by_statement = things.select().with_only_columns(things.c.owner,  func.sum(things.c.value)).group_by(things.c.owner).having(func.sum(things.c.value)>300)
 result = conn.execute(group_by_statement)
 
 for row in result.fetchall():
     print(row)
+
