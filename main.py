@@ -33,5 +33,8 @@ session = Session()
 
 new_person = person(name='sam', age=26)
 session.add(new_person)
+session.commit()
 
+new_thing = things(description='camera', value=600 , owner = new_person.id)
+session.add(new_thing)
 session.commit()
