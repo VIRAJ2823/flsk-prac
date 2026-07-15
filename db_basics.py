@@ -69,3 +69,11 @@ conn.commit()
 
 conn.execute(insert_things)
 conn.commit()
+
+join_statement = people.join(things, people.c.id  == things.c.owner)
+select_statement = people.select().with_only_columns(people.c.name, things.c.description).select_from(join_statement) 
+
+result = conn.execute(select_statement)
+
+for row in result.fetchall():
+    print(row)
