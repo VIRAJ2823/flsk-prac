@@ -94,3 +94,9 @@ session.commit()
 #         print(row.name, "owns", thing.description)
 
 # update operation
+viraj = session.query(person).filter(person.name == "Viraj").first()
+
+viraj.age = 23
+
+session.commit()
+
