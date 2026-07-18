@@ -8,4 +8,8 @@ def home():
 
 @app.route("/users")
 def users():
-    pass    
+    pass
+
+name = "Viraj"
+age = 19
+college = "SPPU"
