@@ -4,12 +4,12 @@ app = Flask(__name__)
 
 @app.route("/home")
 def home():
-    pass
+    return "hello "
 
 @app.route("/users")
 def users():
-    pass
+    return "user page "
 
-name = "Viraj"
-age = 19
-college = "SPPU"
+
+if __name__ == "__main__":
+    app.run(debug=True)
