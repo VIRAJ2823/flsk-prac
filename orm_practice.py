@@ -110,8 +110,8 @@ session.commit()
 
 # for deleting a thing in person
 
-result = session.query(things).filter(things.description == 'Keyboard').first()
+#result = session.query(things).filter(things.description == 'Keyboard').first()
 
-session.delete(result)
+#session.delete(result)
 session.commit()
 
