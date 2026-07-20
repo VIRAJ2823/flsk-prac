@@ -7,7 +7,7 @@ def home():
     return render_template(
         "home.html",
         name="viraj",  
-        age=19,
+        age=17,
         college="SPPU"
         )
 
