@@ -6,7 +6,7 @@ app = Flask(__name__)
 def home():
     return render_template(
         "home.html",
-        name="Viraj",
+        name="viraj balfe",
         age=17,
         college="SPPU",
         students=[
