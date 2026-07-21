@@ -8,10 +8,6 @@ This project serves as a learning playground for:
 - **Flask** - A lightweight Python web framework for building web applications
 - **FastAPI** - A modern, fast web framework for building APIs with Python
 
-## Language Composition
-
-- Python: 71.9%
-- HTML: 28.1%
 
 ## Getting Started
 
@@ -38,18 +34,6 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```bash
 pip install -r requirements.txt
 ```
-
-## Usage
-
-[Add instructions for running Flask and FastAPI applications]
-
-## Project Structure
-
-```
-flsk-prac/
-├── README.md
-├── requirements.txt
-└── [Add your project directories here]
 ```
 
 ## Contributing
