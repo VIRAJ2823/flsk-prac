@@ -1,21 +1,7 @@
-from flask import Flask, render_template ,request ,redirect,url_for , flash
+from flask import Flask, render_template, request, redirect, url_for, flash, session
 
 app = Flask(__name__)
-
-@app.route("/home")
-def home():
-    return render_template("home.html",
-        name="Viraj Balfe",
-        age=17,
-        college="SPPU",
-        students=["viraj", "rahul", "akanksha"]   )
-
-
-@app.route("/login")
-def login_page():
-    return render_template("form.html")
-
-
+app.secret_key = "mysecretkey"
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -27,27 +13,26 @@ def login():
 
         if username == "viraj" and password == "12345":
 
+            session["user"] = username
             return redirect(url_for("dashboard"))
-        
-        flash("invalid username or password")
 
-        
-    
+        flash("Invalid username or password")
 
-    return render_template("login.html")
+    return render_template("form.html")
+
 
 @app.route("/dashboard")
 def dashboard():
-    return"<h1>welcome viraj</h1>"
 
-@app.route("/about")
-def about():
-    return render_template("about.html")
+    if "user" in session:
+        return f"Welcome {session['user']}"
 
-@app.route("/search")
-def search():
-    search_text = request.args["query"]
-    return f"you have searched for :{search_text}"
+    return redirect(url_for("login"))
 
-if __name__ == "__main__":
-    app.run(debug=True)
+
+@app.route("/logout")
+def logout():
+
+    session.pop("user", None)
+
+    return redirect(url_for("login"))
