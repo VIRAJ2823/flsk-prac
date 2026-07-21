@@ -1,33 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Home</title>
-</head>
+{% extends "base.html" %}
 
+{% block content %}
 
-<body>
+<h1>Home Page</h1>
 
-<h1>Welcome to Flask</h1>
+<p>Welcome Viraj</p>
 
-<p>{{name}}</p>
-<p>{{name | upper}}</p>
-<p>{{name | title}}</p>
-<p>Total students : {{student | length}}</p>
-<p>    {{age}} </p>
-  <p>  {{college}} </p>
-
-
-{% if age >= 19 %}
-<h1>yuhoo</h1>  
-{%else%}
-<h1>nooooo</h1>
-{% endif %}
-
-{% for student in students %}
-
-    <p>{{ student}}</p>
-{%endfor%}
-
-</body>
-</html>
-
+{% endblock %}
