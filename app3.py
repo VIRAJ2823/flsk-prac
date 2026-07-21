@@ -10,6 +10,9 @@ def home():
         college="SPPU",
         students=["viraj", "rahul", "akanksha"]   )
 
+@app.route("/")
+def form():
+    return render_template("form.html")
 
 @app.route("/about")
 def about():
