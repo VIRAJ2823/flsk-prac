@@ -1,15 +1,16 @@
-{% extends "base.html" %}
+<form action="/search" method="GET">
 
-{% block content %}
+<label>Search</label><br>
 
-<form action="/login">
+<input
+    type="text"
+    name="query"
+    placeholder="Search here">
 
-<input type="text" name="username">
+<br><br>
 
 <button type="submit">
-Login
+    Search
 </button>
 
 </form>
-
-{% endblock %}

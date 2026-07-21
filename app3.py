@@ -18,7 +18,10 @@ def form():
 def about():
     return render_template("about.html")
 
-
+@app.route("/search")
+def search():
+    search_text = request.args["query"]
+    return f"you have searched for :{search_text}"
 
 if __name__ == "__main__":
     app.run(debug=True)
