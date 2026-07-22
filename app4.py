@@ -68,6 +68,28 @@ def login():
 
     return redirect("/login")
 
+@app.route("/dashboard")
+def dashboard():
+
+    if "user" not in session:
+        flash("Please login first!")
+        return redirect("/login")
+
+    return render_template(
+        "dashboard.html",
+        username=session["user"]
+    )
+
+@app.route("/logout")
+def logout():
+
+    session.pop("user", None)
+
+    flash("Logged out successfully!")
+
+    return redirect("/login")
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
