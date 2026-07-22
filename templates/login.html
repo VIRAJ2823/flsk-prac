@@ -1,13 +1,40 @@
-{% with messages = get_flashed_messages() %}
+<!DOCTYPE html>
+<html>
 
-    {% if messages %}
+<head>
+    <title>Login</title>
+</head>
 
-        {% for message in messages %}
+<body>
 
-            <p>{{ message }}</p>
+<h1>Login</h1>
 
-        {% endfor %}
+<form action="/login" method="POST">
 
-    {% endif %}
+    <label>Username</label><br>
+    <input
+        type="text"
+        name="username"
+        placeholder="Enter Username"
+        required>
 
-{% endwith %}
+    <br><br>
+
+    <label>Password</label><br>
+    <input
+        type="password"
+        name="password"
+        placeholder="Enter Password"
+        required>
+
+    <br><br>
+
+    <button type="submit">
+        Login
+    </button>
+
+</form>
+
+</body>
+
+</html>
