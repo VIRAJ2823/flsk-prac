@@ -52,3 +52,5 @@ class Attendance(db.Model):
         "Lecture",
         back_populates="attendances"
     )
+
+    
