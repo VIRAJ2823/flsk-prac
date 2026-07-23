@@ -21,15 +21,6 @@ with app.app_context():
 def home():
     return "<h1>Authentication Project</h1>"
 
-@app.route("/register", methods=["GET"])
-def register_page():
-
-    form = RegisterForm()
-
-    return render_template(
-        "register.html",
-        form=form
-    )
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
