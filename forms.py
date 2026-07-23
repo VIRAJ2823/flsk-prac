@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
+from wtforms import StringField, PasswordField, SubmitField , SelectField , TextAreaField
 from wtforms.validators import DataRequired, Length
 from wtforms import (
     StringField,
@@ -36,4 +36,17 @@ class RegisterForm(FlaskForm):
         DataRequired(),
         Email()
     ]
+)
+    semester = SelectField(
+    "Semester",
+    choices=[
+        ("SE","Second Year"),
+        ("TE","Third Year"),
+        ("BE","Final Year")
+    ]
+)
+
+reason = TextAreaField(
+    "Reason",
+    validators=[DataRequired()]
 )
