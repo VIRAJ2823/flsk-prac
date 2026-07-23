@@ -1,38 +1,23 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>Register</title>
-</head>
-
-<body>
-
 <h1>Register</h1>
 
 <form method="POST">
 
     {{ form.hidden_tag() }}
 
-    {{ form.username.label }} <br>
-    {{ form.username() }}
-
     {{ form.username.label }}<br>
-
     {{ form.username() }}
 
     {% for error in form.username.errors %}
-    <p>{{ error }}</p>
+        <p>{{ error }}</p>
     {% endfor %}
 
     <br><br>
 
-    {{ form.password.label }} <br>
-    {{ form.password() }}
     {{ form.password.label }}<br>
     {{ form.password() }}
 
     {% for error in form.password.errors %}
-    <p>{{ error }}</p>
+        <p>{{ error }}</p>
     {% endfor %}
 
     <br><br>
@@ -40,6 +25,3 @@
     {{ form.submit() }}
 
 </form>
-
-</body>
-</html>

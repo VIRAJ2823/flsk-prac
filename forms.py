@@ -12,7 +12,6 @@ from wtforms.validators import (
     Length,
     Email
 )
-
 class RegisterForm(FlaskForm):
 
     username = StringField(
@@ -28,25 +27,26 @@ class RegisterForm(FlaskForm):
         ]
     )
 
-    submit = SubmitField("Register")
-
     email = EmailField(
-    "Email",
-    validators=[
-        DataRequired(),
-        Email()
-    ]
-)
-    semester = SelectField(
-    "Semester",
-    choices=[
-        ("SE","Second Year"),
-        ("TE","Third Year"),
-        ("BE","Final Year")
-    ]
-)
+        "Email",
+        validators=[
+            DataRequired(),
+            Email()
+        ]
+    )
 
-reason = TextAreaField(
-    "Reason",
-    validators=[DataRequired()]
-)
+    semester = SelectField(
+        "Semester",
+        choices=[
+            ("SE","Second Year"),
+            ("TE","Third Year"),
+            ("BE","Final Year")
+        ]
+    )
+
+    reason = TextAreaField(
+        "Reason",
+        validators=[DataRequired()]
+    )
+
+    submit = SubmitField("Register")
