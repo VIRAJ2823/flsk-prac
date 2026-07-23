@@ -20,3 +20,4 @@ class Attendance(db.Model):
     )
 
     status = db.Column(db.String(20))
+    student = db.relationship("Student")
