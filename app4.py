@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, flash, session
 from models import db, User
 from werkzeug.security import generate_password_hash , check_password_hash
+from forms import RegisterForm
 
 
 app = Flask(__name__)
@@ -22,8 +23,13 @@ def home():
 
 @app.route("/register", methods=["GET"])
 def register_page():
-    return render_template("register.html")
 
+    form = RegisterForm()
+
+    return render_template(
+        "register.html",
+        form=form
+    )
 
 @app.route("/register", methods=["POST"])
 def register():
