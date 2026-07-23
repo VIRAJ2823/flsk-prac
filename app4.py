@@ -31,25 +31,40 @@ def register_page():
         form=form
     )
 
-@app.route("/register", methods=["POST"])
+@app.route("/register", methods=["GET", "POST"])
 def register():
 
-    username = request.form["username"]
-    password = request.form["password"]
+    form = RegisterForm()
 
-    hashed_password = generate_password_hash(password)
+    if form.validate_on_submit():
 
-    new_user = User(
-        username=username,
-        password=hashed_password
+        username = form.username.data
+        password = form.password.data
+
+        existing_user = User.query.filter_by(username=username).first()
+
+        if existing_user:
+            flash("Username already exists!")
+            return redirect("/register")
+
+        hashed_password = generate_password_hash(password)
+
+        new_user = User(
+            username=username,
+            password=hashed_password
+        )
+
+        db.session.add(new_user)
+        db.session.commit()
+
+        flash("Registration Successful!")
+
+        return redirect("/login")
+
+    return render_template(
+        "register.html",
+        form=form
     )
-
-    db.session.add(new_user)
-    db.session.commit()
-
-    flash("Registration Successful!")
-
-    return redirect("/register")   
 
 @app.route("/login", methods=["GET"])
 def login_page():
