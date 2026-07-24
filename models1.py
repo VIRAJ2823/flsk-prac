@@ -1,5 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
 
+
 db = SQLAlchemy()
 
 
@@ -53,4 +54,3 @@ class Attendance(db.Model):
         back_populates="attendances"
     )
 
-    
